@@ -1,0 +1,142 @@
+//圆角
+//@radius 圆角大小
+
+.round(@radius:5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+//-------------------------------------------------------------------------------------------
+//盒子阴影
+//@right_left 右边阴影为正数 左边负数
+//@bottom_top 下边阴影为正数 上边负数
+//@box  阴影大小
+//@box_color 阴影颜色
+
+.boxShadow(@right_left:5px,@bottom_top:5px,@box :5px,@box_color:#b6ebf7) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+
+//-------------------------------------------------------------------------------------------
+
+//文字阴影,可以指定多组阴影
+//@right_left1 右边阴影为正数 左边负数
+//@bottom_top1 下边阴影为正数 上边负数
+//@text  阴影大小
+//@text_color 阴影颜色
+
+.textShadow(@right_left1:5px,@bottom_top1:5px,@text :5px,@tetx_color:#b6ebf7) {
+  text-shadow: @arguments;
+}
+
+//-------------------------------------------------------------------------------------------
+
+//透明度 或渐变 1为不透明 0透明
+//css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明值
+//用来兼容所有浏览器
+
+.rgba(@rgb_a:0.4,@rgb_b:40) {
+  filter: alpha(opacity=@rgb_b);
+  opacity: @rgb_a;
+}
+
+//-------------------------------------------------------------------------------------------
+
+//背景渐变
+//@start  渐变开始颜色
+//@end  结束颜色
+.bgGradient-t(@start :#00ffff,@end :#9fffff) { /*从上到下*/
+  background: -webkit-linear-gradient(@start, @end);
+  background: -moz-linear-gradient(@start, @end);
+  background: linear-gradient(@start, @end);
+}
+
+.bgGradient-l(@start :#00ffff,@end :#9fffff) { /*从左到右*/
+  background: -webkit-linear-gradient(left, @start, @end);
+  background: -moz-linear-gradient(right, @start, @end);
+  background: linear-gradient(to right, @start, @end);
+}
+
+.bgGradient-lt(@start :#00ffff,@end :#9fffff) { /*对角*/
+  background: -webkit-linear-gradient(left top, @start, @end);
+  background: -moz-linear-gradient(bottom right, @start, @end);
+  background: linear-gradient(to bottom right, @start, @end);
+}
+
+//-------------------------------------------------------------------------------------------
+
+//旋转角度
+//@ro定义度数
+.rotate(@ro :30deg) {
+  transform: rotate(@ro);
+  -webkit-transform: rotate(@ro);
+  -moz-transform: rotate(@ro);
+  -o-transform: rotate(@ro);
+}
+
+//-------------------------------------------------------------------------------------------
+
+//层级z-index
+//@ro100
+.layer(@ro :100) {
+  z-index: @ro
+}
+
+//-------------------------------------------------------------------------------------------
+//菱形旋转角度
+//@x横向缩放比例
+//@y纵向缩放比例
+.skew(@roX :30deg,@roY :30deg) {
+  transform: skew(@roX, @roY);
+  -webkit-transform: skew(@roX, @roY);
+  -moz-transform: skew(@roX, @roY);
+  -o-transform: skew(@roX, @roY);
+  -ms-transform: skew(@roX, @roY);
+}
+
+//-------------------------------------------------------------------------------------------
+//放大缩小
+//@x横向缩放比例
+//@y纵向缩放比例
+.scale(@x :1.2,@y :1.2) {
+  transform: scale(@x, @y);
+  -webkit-transform: scale(@x, @y);
+  -moz-transform: scale(@x, @y);
+  -o-transform: scale(@x, @y);
+  -ms-transform: scale(@x, @y);
+}
+
+//-------------------------------------------------------------------------------------------
+//移动距离
+//@x横向移动距离
+//@y纵向移动距离
+.translate(@x :80px,@y :80px) {
+  transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+}
+
+
+//-------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------------------
+  //清浮动
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
